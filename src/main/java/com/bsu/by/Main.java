@@ -8,46 +8,39 @@ public class Main {
 
     public static void main(String[] args) {
         try (Scanner input = new Scanner(System.in)) {
-
             System.out.println("Write strings");
             ArrayList<String> text = new ArrayList<String>();
-
             String tmp = "a";
-
-
             while (!tmp.equals("")) {
                 tmp = input.nextLine();
                 text.add(tmp);
             }
 
-            newText(text);
+            makeNewText(text);
 
             outText(text);
 
-
-        } catch (Exception ignored) {
-
+        } catch (Exception e) {
+            System.out.println("all okay");
         } finally {
             System.err.println("All done");
         }
 
     }
 
-    public static void newText(ArrayList<String> newList) {
+    public static void makeNewText(ArrayList<String> text) {
 
-
-        for (int j = 0; j < newList.size(); j++) {
+        for (int j = 0; j < text.size(); j++) {
             StringBuilder tmp = new StringBuilder();
 
             int i = 0;
-            while (i < newList.get(j).length()) {
-                if (!(Character.isDigit(newList.get(j).charAt(i)))) {
-                    tmp.append(newList.get(j).charAt(i));
-
+            while (i < text.get(j).length()) {
+                if (!(Character.isDigit(text.get(j).charAt(i)))) {
+                    tmp.append(text.get(j).charAt(i));
                 }
                 i++;
             }
-            newList.set(j, tmp.toString());
+            text.set(j, tmp.toString());
         }
     }
 
